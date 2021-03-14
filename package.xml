@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>unity_moveit_manager</name>
+  <version>0.0.0</version>
+  <description>The unity controller for moveit</description>
+
+  <maintainer email="simone.zandara@gmail.com">Kovac</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>moveit_core</build_depend>
+  <exec_depend>moveit_core</exec_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+    <moveit_core plugin="${prefix}/unity_moveit_plugin_description.xml" />
+  </export>
+</package>

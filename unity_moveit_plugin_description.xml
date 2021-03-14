@@ -1,0 +1,11 @@
+<library path="lib/libunity_moveit_manager">
+
+  <class name="unity_moveit_manager/UnityMoveitManager"
+         type="unity_moveit_manager::UnityMoveitManager"
+         base_class_type="moveit_controller_manager::MoveItControllerManager">
+    <description>
+      A fake controller which sends the trajectory to Unity as a RobotTrajectory.
+    </description>
+  </class>
+
+</library>
