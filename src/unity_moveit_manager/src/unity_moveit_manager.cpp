@@ -38,6 +38,7 @@
 #include <ros/console.h>
 #include <moveit/controller_manager/controller_manager.h>
 #include <sensor_msgs/JointState.h>
+#include <trajectory_msgs/JointTrajectory.h>
 #include <pluginlib/class_list_macros.hpp>
 #include <map>
 
@@ -64,7 +65,7 @@ public:
     moveit_controller_manager::MoveItControllerHandle(name), joints_(joints)
   {
     unity_pub_ = node_handle.
-        advertise<moveit_msgs::RobotTrajectory>(UNITY_TRAJECTORY_BASE + name, 1000);
+        advertise<trajectory_msgs::JointTrajectory >(UNITY_TRAJECTORY_BASE + name, 1000);
   }
 
   /**
@@ -76,7 +77,7 @@ public:
   bool sendTrajectory(const moveit_msgs::RobotTrajectory& msg) override
   {
     // Send the trajectory to Unity
-    unity_pub_.publish(msg);
+    unity_pub_.publish(msg.joint_trajectory);
     return true;
   }
 
