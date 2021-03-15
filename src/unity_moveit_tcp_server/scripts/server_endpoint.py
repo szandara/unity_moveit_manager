@@ -5,7 +5,7 @@ import rosparam
 
 from ros_tcp_endpoint import TcpServer, RosPublisher, RosSubscriber
 from sensor_msgs.msg import JointState
-from moveit_msgs.msg import RobotTrajectory
+from trajectory_msgs.msg import JointTrajectory
 
 UNITY_CONTROLLER_BASE = '/move_group/unity_trajectory/'
 UNITY_CONTROLLER_LIST_PARAM = 'controller_list'
@@ -45,7 +45,7 @@ def setup_kinematic_server():
     for controller in rosparam.get_param(UNITY_CONTROLLER_LIST_PARAM):
         controller_name = controller['name']
         topics[controller_name] = RosSubscriber(UNITY_CONTROLLER_BASE + controller_name,
-                                                RobotTrajectory,
+                                                JointTrajectory,
                                                 tcp_server)
         rospy.loginfo(f'Listening to {UNITY_CONTROLLER_BASE + controller_name} '
                       f'for the trajectory execution')
