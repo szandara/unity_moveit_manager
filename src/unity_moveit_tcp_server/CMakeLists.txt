@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(kovac_unity_connector)
+project(unity_moveit_tcp_server)
 
 find_package(catkin REQUIRED COMPONENTS
   rospy

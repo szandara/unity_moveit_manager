@@ -13,6 +13,6 @@
 
     <group ns="joint_state_group">
           <rosparam file="$(find YOUR_PACKAGE)/config/unity_controller.yaml"/>
-          <node pkg="kovac_unity_connector" name="server_endpoint" type="server_endpoint.py" output="screen"/>
+          <node pkg="unity_moveit_tcp_server" name="server_endpoint" type="server_endpoint.py" output="screen"/>
     </group>
 </launch>
